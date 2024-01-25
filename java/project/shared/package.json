@@ -1,0 +1,20 @@
+{
+  "name": "ai-wh40k",
+  "private": true,
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@prettier/plugin-xml": "2",
+    "husky": "8",
+    "lint-staged": "14",
+    "pinst": "3",
+    "prettier": "2",
+    "prettier-plugin-java": "2",
+    "prettier-plugin-properties": "^0.2.0"
+  },
+  "scripts": {
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
+  },
+  "packageManager": "yarn@3.6.1"
+}

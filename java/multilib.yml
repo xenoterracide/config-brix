@@ -1,0 +1,50 @@
+context:
+  tld: com.xenoterracide
+commands:
+- copy:
+    source: project/shared
+    destination: .
+    overwrite: true
+- exec:
+    stdout: false
+    commands:
+    - git init
+    - git add .
+    - git commit -m initial
+    - 'git remote add origin git@github.com:xenoterracide/{{project}}.git'
+- template:
+    source: module/build.gradle.kts.hbs
+    destination: 'module/{{module}}/build.gradle.kts'
+    overwrite: false
+- template:
+    source: project/templates/shared/package.json.hbs
+    destination: 'package.json'
+    overwrite: false
+- template:
+    source: project/templates/shared/settings.gradle.kts.hbs
+    destination: 'settings.gradle.kts'
+    overwrite: false
+- mkdir:
+    destination: "module/{{module}}/src/main/java/{{to-java-package-path tld}}/{{to-java-package-path project}}/{{to-java-package-path module}}"
+- mkdir:
+    destination: "module/{{module}}/src/test/java/{{to-java-package-path tld}}/{{to-java-package-path project}}/{{to-java-package-path module}}"
+- exec:
+    stdout: false
+    commands:
+    - yarn up
+    - ./gradlew dependencies --write-locks
+- template:
+    source: module/module-info.java.hbs
+    destination: 'module/{{module}}/src/main/java/module-info.java'
+    overwrite: false
+- template:
+    source: module/Application.java.hbs
+    destination: 'module/{{module}}/src/main/java/{{to-java-package-path tld}}/{{to-java-package-path project}}/{{to-java-package-path module}}/Application.java'
+    overwrite: false
+- exec:
+    stdout: false
+    commands:
+    - git add .
+    - ./gradlew spotlessApply
+    - git add -u
+    - 'git commit -m "add deps"'
