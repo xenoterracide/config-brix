@@ -1,0 +1,5 @@
+printWidth: 120
+plugins:
+  - "@prettier/plugin-xml"
+  - prettier-plugin-properties
+  - prettier-plugin-java
