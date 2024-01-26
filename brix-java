@@ -22,7 +22,6 @@ package_dir() {
 
 pwd
 install -d "$CONFIG_PROJECT_DIR/shared" "$PROJECT"
-install -d "$CONFIG_DIR/.config" "$PROJECT"
 install -D "$CONFIG_DIR/.editorconfig" "$PROJECT"
 install -D "$CONFIG_DIR/.gitattributes" "$PROJECT"
 install -D "$CONFIG_DIR/.prettierrc.yml" "$PROJECT"

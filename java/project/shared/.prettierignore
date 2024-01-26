@@ -1,2 +1,5 @@
-gradlew
-gradlew.bat
+.gradle/
+node_modules/
+build/
+.idea/
+gradlew*

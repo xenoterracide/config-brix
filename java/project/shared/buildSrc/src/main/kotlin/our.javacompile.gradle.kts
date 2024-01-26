@@ -1,18 +1,5 @@
-/*
-Copyright © 2023 Caleb Cushing.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    https://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OFS ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+// SPDX-License-Identifier: MIT
+// Copyright © 2023-2024 Caleb Cushing.
 import net.ltgt.gradle.errorprone.errorprone
 import org.gradle.accessors.dm.LibrariesForLibs
 
@@ -54,8 +41,8 @@ tasks.withType<JavaCompile>().configureEach {
       "-Xlint:-exports",
       "-Xlint:-requires-transitive-automatic",
       "-Xlint:-requires-automatic",
-      "-Xlint:-fallthrough" // handled by error prone in a smarter way
-    )
+      "-Xlint:-fallthrough", // handled by error prone in a smarter way
+    ),
   )
 
   options.errorprone {
@@ -217,7 +204,7 @@ tasks.withType<JavaCompile>().configureEach {
       "MultipleTopLevelClasses",
       "PackageLocation",
       "RemoveUnusedImports",
-      "Var"
+      "Var",
     )
 
     val inIdea = providers.systemProperty("idea.active").map { it.toBoolean() }
@@ -228,7 +215,7 @@ tasks.withType<JavaCompile>().configureEach {
           "UnusedVariable",
           "UnusedMethod",
           "UnusedNestedClass",
-        )
+        ),
       )
     }
 
@@ -242,7 +229,7 @@ tasks.withType<JavaCompile>().configureEach {
         listOf(
           "-Xlint:-unchecked",
           "-Xlint:-varargs",
-        )
+        ),
       )
     }
 
