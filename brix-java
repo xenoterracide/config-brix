@@ -8,7 +8,7 @@ CONFIG_MODULE_DIR="$CONFIG_DIR/$LANGUAGE/module"
 TLD="com.xenoterracide"
 
 to_java_package() {
-  echo "$1" | sed 's/[:punct:]/\./g'
+  echo "$1" | sed 's/[[:punct:]]/\./g'
 }
 
 to_java_package_path() {
