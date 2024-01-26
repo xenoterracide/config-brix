@@ -56,7 +56,7 @@ git commit -m "chore: module $MODULE initialized"
 npm install
 ./gradlew dependencies --write-locks
 
-gh repo create my-proj --private --source . --remote origin
+gh repo create "$PROJECT" --private --source . --remote origin
 git push -u origin main
 
 ./gradlew spotlessApply --write-locks
