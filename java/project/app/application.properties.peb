@@ -1,3 +1,0 @@
-logging.level.com.xenoterracide.{{ project }}=debug
-logging.level.org.springframework=info
-

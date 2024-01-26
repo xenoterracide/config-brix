@@ -1,8 +1,9 @@
 #!/bin/sh
+set -eu
 LANGUAGE=java
 PROJECT=$1
 MODULE=$2
-CONFIG_DIR="$HOME/${XDG_CONFIG_HOME+.config}/brix/"
+CONFIG_DIR="$HOME/${XDG_CONFIG_HOME+.config}/brix"
 CONFIG_PROJECT_DIR="$CONFIG_DIR/$LANGUAGE/project"
 CONFIG_MODULE_DIR="$CONFIG_DIR/$LANGUAGE/module"
 TLD="com.xenoterracide"
@@ -19,35 +20,29 @@ package_dir() {
   echo "java/$(to_java_package_path $TLD)/$(to_java_package_path "$PROJECT")/$(to_java_package_path "$MODULE")"
 }
 
-cp -a "$CONFIG_PROJECT_DIR/shared" "$PROJECT"
-cp -a "$CONFIG_PROJECT_DIR/dotfiles" "$PROJECT"
-cp -a "$CONFIG_DIR/.config" "$PROJECT"
-cp -p "$CONFIG_DIR/.editorconfig" "$PROJECT"
-cp -p "$CONFIG_DIR/.gitattributes" "$PROJECT"
-cp -p "$CONFIG_DIR/.prettierrc.yml" "$PROJECT"
-cp -p "$CONFIG_DIR/.lintstagedrc.yml" "$PROJECT"
-cp -p "$CONFIG_DIR/git-conventional-commits.yaml" "$PROJECT"
+pwd
+install -d "$CONFIG_PROJECT_DIR/shared" "$PROJECT"
+install -d "$CONFIG_DIR/.config" "$PROJECT"
+install -D "$CONFIG_DIR/.editorconfig" "$PROJECT"
+install -D "$CONFIG_DIR/.gitattributes" "$PROJECT"
+install -D "$CONFIG_DIR/.prettierrc.yml" "$PROJECT"
+install -D "$CONFIG_DIR/.lintstagedrc.yml" "$PROJECT"
+install -D "$CONFIG_DIR/git-conventional-commits.yaml" "$PROJECT"
 
-cp -p "$CONFIG_PROJECT_DIR/templates/settings.gradle.kts.hbs" "$PROJECT"
-sed -i "s/{{tld}}/$TLD/g" "$PROJECT/settings.gradle.kts"
-cp -p "$CONFIG_PROJECT_DIR/templates/package.json.hbs" "$PROJECT"
-sed -i "s/{{project}}/$PROJECT/g" "$PROJECT/package.json"
+sed -i "s/TLD/$TLD/g" "$PROJECT/settings.gradle.kts"
+sed -i "s/PROJECT/$PROJECT/g" "$PROJECT/package.json"
 
 MODULE_DIR="$PROJECT/module/$MODULE"
-install -TD "$CONFIG_MODULE_DIR/build.gradle.kts.hbs" "$MODULE_DIR/build.gradle.kts"
-sed -i "s/{{tld}}/$TLD/g" "$MODULE_DIR/build.gradle.kts"
+install -D "$CONFIG_MODULE_DIR/build.gradle.kts" "$MODULE_DIR"
+sed -i "s/TLD/$TLD/g" "$MODULE_DIR/build.gradle.kts"
 
-install -TD "$CONFIG_MODULE_DIR/module-info.java.hbs" "$MODULE_DIR/src/main/$(package_dir)/module-info.java"
-sed -i "s/{{tld}}/$TLD/g" "$MODULE_DIR/src/main/$(package_dir)/module-info.java"
-sed -i "s/{{to-java-package project}}/$(to_java_package "$PROJECT")/g" "$MODULE_DIR/src/main/$(package_dir)/module-info.java"
-sed -i "s/{{to-java-package module}}/$(to_java_package "$MODULE")/g" "$MODULE_DIR/src/main/$(package_dir)/module-info.java"
+install -D "$CONFIG_MODULE_DIR/module-info.java" "$MODULE_DIR/src/main/$(package_dir)"
+sed -i "s/TLD.PROJECT.MODULE/$(to_java_package "$TLD.$PROJECT.$MODULE")/g" "$MODULE_DIR/src/main/$(package_dir)/module-info.java"
 
-install -TD "$CONFIG_MODULE_DIR/Application.java.hbs" "$MODULE_DIR/src/main/$(package_dir)/Application.java"
-sed -i "s/{{tld}}/$TLD/g" "$MODULE_DIR/src/main/$(package_dir)/Application.java"
-sed -i "s/{{to-java-package project}}/$(to_java_package "$PROJECT")/g" "$MODULE_DIR/src/main/$(package_dir)/Application.java"
-sed -i "s/{{to-java-package module}}/$(to_java_package "$MODULE")/g" "$MODULE_DIR/src/main/$(package_dir)/Application.java"
+install -TD "$CONFIG_MODULE_DIR/Application.java" "$MODULE_DIR/src/main/$(package_dir)"
+sed -i "s/TLD.PROJECT.MODULE/$(to_java_package "$TLD.$PROJECT.$MODULE")/g" "$MODULE_DIR/src/main/$(package_dir)/Application.java"
 
-cd "$PROJECT" || exit 1
+cd "$PROJECT"
 npm install
 ./gradlew dependencies --write-locks
 
@@ -55,3 +50,4 @@ git add .
 ./gradlew spotlessApply
 git add -u
 git commit -m "chore: initial commit"
+set +eu
