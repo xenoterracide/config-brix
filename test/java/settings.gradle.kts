@@ -1,4 +1,4 @@
-rootProject.name = "{{project}}"
+rootProject.name = "ai-wh40k"
 
 rootDir.resolve("module").listFiles()?.forEach { file ->
   if (file.isDirectory && file?.list { _, name -> name == "build.gradle.kts" }?.isNotEmpty() == true) {

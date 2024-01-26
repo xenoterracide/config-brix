@@ -1,0 +1,97 @@
+[versions]
+ep = "2.+"
+immutables = "2.+"
+checker = "3.+"
+picocli = "4.+"
+deeplearning4j = "1.+"
+spring = "2.+"
+
+[libraries]
+api-guardian = { module = "org.apiguardian:apiguardian-api" }
+assertj = "org.assertj:assertj-core:3+"
+autoservice = "com.google.auto.service:auto-service:1.+"
+bndlib = "biz.aQute.bnd:bndlib:2.+"
+checker-annotations = { module = "org.checkerframework:checker-qual", version.ref = "checker" }
+checker-core = { module = "org.checkerframework:checker", version.ref = "checker" }
+checkstyle = "com.puppycrawl.tools:checkstyle:8.+"
+commons-io = "commons-io:commons-io:2.+"
+commons-lang = { module = "org.apache.commons:commons-lang3" }
+compile-testing = "com.google.testing.compile:compile-testing:0.+"
+deeplearning4j-core = { module = "org.deeplearning4j:deeplearning4j-core", version.ref = "deeplearning4j" }
+dgs-platform = "com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:4.+"
+dgs-starter = { module = "com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter" }
+equalsverifier = "nl.jqno.equalsverifier:equalsverifier:3.+"
+errorprone-annotations = { module = "com.google.errorprone:error_prone_annotations", version.ref = "ep" }
+errorprone-core = { module = "com.google.errorprone:error_prone_core", version.ref = "ep" }
+errorprone-nullaway = "com.uber.nullaway:nullaway:0.+"
+freebuilder = "org.inferred:freebuilder:2.+"
+immutables-core = { module = "org.immutables:value", version.ref = "immutables" }
+immutables-annotations = { module = "org.immutables:value-annotations", version.ref = "immutables" }
+jackson-annotations = { module = "com.fasterxml.jackson.core:jackson-annotations" }
+jackson-core = { module = "com.fasterxml.jackson.core:jackson-core" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind" }
+jackson-dataformat-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml" }
+jackson-module-parameter-names = { module = "com.fasterxml.jackson.module:jackson-module-parameter-names" }
+java-parser = "com.github.javaparser:javaparser-core:3.+"
+jakarta-annotation = { module = "jakarta.annotation:jakarta.annotation-api" }
+javax-annotation = "jakarta.annotation:jakarta.annotation-api:1.+"
+junit-api = { module = "org.junit.jupiter:junit-jupiter-api" }
+junit-bom = "org.junit:junit-bom:5.+"
+junit-parameters = { module = "org.junit.jupiter:junit-jupiter-params" }
+junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
+junit-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+log4j-api = { module = "org.apache.logging.log4j:log4j-api" }
+mockito = { module = "org.mockito:mockito-core" }
+nd4j-native = { module = "org.nd4j:nd4j-native", version.ref = "deeplearning4j" }
+neo4j-driver = { module = "org.neo4j.driver:neo4j-java-driver" }
+neo4j-test = "org.neo4j.test:neo4j-harness:4.4.+"
+neo4j-testcontainers = "org.testcontainers:neo4j:1.+"
+pebble = "io.pebbletemplates:pebble:3.+"
+picocli-core = { module = "info.picocli:picocli", version.ref = "picocli" }
+picocli-starter = { module = "info.picocli:picocli-spring-boot-starter", version.ref = "picocli" }
+plugin-errorprone = "net.ltgt.gradle:gradle-errorprone-plugin:3.+"
+plugin-gradle-v = "com.github.ben-manes:gradle-versions-plugin:0.+"
+plugin-spotbugs = "com.github.spotbugs.snom:spotbugs-gradle-plugin:5.+"
+plugin-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.+"
+slf4j-nop = { module = "org.slf4j:slf4j-nop" }
+spotbugs = "com.github.spotbugs:spotbugs:4.+"
+spring-platform = { module = "org.springframework.boot:spring-boot-starter-parent", version.ref = "spring" }
+spring-context = { module = "org.springframework:spring-context" }
+spring-core = { module = "org.springframework:spring-core" }
+spring-beans = { module = "org.springframework:spring-beans" }
+spring-test = { module = "org.springframework:spring-test" }
+spring-security-core = { module = "org.springframework.security:spring-security-core" }
+spring-security-oauth2-core = { module = "org.springframework.security:spring-security-oauth2" }
+spring-security-oauth2-authorization-server = "org.springframework.security.experimental:spring-security-oauth2-authorization-server:0.1.1"
+spring-boot-autoconfigure = { module = "org.springframework.boot:spring-boot-autoconfigure" }
+spring-boot-test-core = { module = "org.springframework.boot:spring-boot-test" }
+spring-boot-test-autoconfigure = { module = "org.springframework.boot:spring-boot-test-autoconfigure" }
+spring-boot-devtools = { module = "org.springframework.boot:spring-boot-devtools" }
+spring-data-commons = { module = "org.springframework.data:spring-data-commons" }
+spring-data-neo4j = { module = "org.springframework.data:spring-data-neo4j" }
+starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+starter-core = { module = "org.springframework.boot:spring-boot-starter" }
+starter-jackson = { module = "org.springframework.boot:spring-boot-starter-jackson" }
+starter-log4j2 = { module = "org.springframework.boot:spring-boot-starter-log4j2" }
+starter-security = { module = "org.springframework.boot:spring-boot-starter-security" }
+starter-oauth2-client = { module = "org.springframework.boot:spring-boot-starter-oauth2-client" }
+starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+starter-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
+starter-neo4j = { module = "org.springframework.boot:spring-boot-starter-data-neo4j" }
+testcontainers = "org.testcontainers:junit-jupiter:1.+"
+tika = "org.apache.tika:tika-core:1.+"
+uom-common = "systems.uom:systems-common:2.+"
+uom-indriya = "tech.units:indriya:2.+"
+uom-quantity = "systems.uom:systems-quantity:2.+"
+uom-unit-api = "javax.measure:unit-api:2.+"
+uuid-creator = "com.github.f4b6a3:uuid-creator:3.+"
+vavr = "io.vavr:vavr:0.+"
+
+[bundles]
+compile-annotations = ["errorprone-annotations", "checker-annotations"]
+ep = ["errorprone-core", "errorprone-nullaway"]
+jackson-config = ["jackson-core", "jackson-module-parameter-names"]
+test = ["assertj", "junit-parameters"]
+junit-platform = ["junit-engine", "junit-launcher"]
+spring-test = ["spring-test", "spring-boot-test-core", "spring-boot-autoconfigure", "spring-boot-test-autoconfigure"]
+measure = ["uom-indriya", "uom-common", "uom-quantity", "uom-unit-api"]

@@ -1,0 +1,11 @@
+name: Build
+on: [push, workflow_call]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: gradle/gradle-build-action@v2
+      - run: ./gradlew build
