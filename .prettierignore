@@ -3,3 +3,4 @@ node_modules/
 build/
 .idea/
 gradlew*
+gradle-wrapper.properties
