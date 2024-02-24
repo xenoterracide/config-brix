@@ -1,4 +1,5 @@
-gradlew
-gradlew.bat
-package-lock.json
-*.lockfile
+.gradle/
+node_modules/
+build/
+.idea/
+gradlew*

@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-repo-node@v3
       - run: npm update
       - uses: peter-evans/create-pull-request@v5
         with:
