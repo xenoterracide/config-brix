@@ -8,4 +8,6 @@ rsync --archive --update --delete --verbose --human-readable \
   --exclude "node_modules/" \
   --exclude "build/" \
   --exclude ".gradle/" \
+  --exclude ".idea/" \
+  --exclude "src/" \
   "$SOURCE/" .
