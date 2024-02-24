@@ -1,5 +1,0 @@
-module {{ project }}.util.lang {
-  exports com.xenoterracide.{{ project }}.util.lang;
-  requires java.base;
-  requires static org.checkerframework.checker.qual;
-}
