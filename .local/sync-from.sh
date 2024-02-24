@@ -9,5 +9,5 @@ rsync --archive --delete --verbose --human-readable \
   --exclude "build/" \
   --exclude ".gradle/" \
   --exclude ".idea/" \
-  --exclude "src/" \
+  --exclude "./src/" \
   "$SOURCE/" .

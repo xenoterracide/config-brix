@@ -1,11 +1,10 @@
 // SPDX-License-Identifier: MIT
-// Copyright © 2023-2024 Caleb Cushing.
+// © Copyright 2023-2024 Caleb Cushing. All rights reserved.
+
 import org.gradle.accessors.dm.LibrariesForLibs
 
 plugins {
   `java-library`
-  `java-test-fixtures`
-  id("com.github.ben-manes.versions")
 }
 
 dependencyLocking {
@@ -34,4 +33,10 @@ configurations.configureEach {
       }
     }
   }
+}
+
+configurations.matching { it.name == "runtimeClasspath" || it.name == "testRuntimeClasspath" }.configureEach {
+  exclude(group = "com.google.code.findbugs", module = "jsr305")
+  exclude(group = "com.google.errorprone", module = "error_prone_annotations")
+  exclude(group = "org.checkerframework", module = "checker-qual")
 }

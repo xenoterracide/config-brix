@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
-// Copyright © 2023-2024 Caleb Cushing.
+// © Copyright 2023-2024 Caleb Cushing. All rights reserved.
+
 import org.gradle.accessors.dm.LibrariesForLibs
 
 plugins {
@@ -11,10 +12,6 @@ val libs = the<LibrariesForLibs>()
 
 tasks.withType<Checkstyle>().configureEach {
   isShowViolations = true
-  reports {
-    html.required.set(false)
-    xml.required.set(false)
-  }
 }
 
 fun checkstyleConfig(filename: String): File {

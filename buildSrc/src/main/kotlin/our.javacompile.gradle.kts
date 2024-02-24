@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
-// Copyright © 2023-2024 Caleb Cushing.
+// © Copyright 2023-2024 Caleb Cushing. All rights reserved.
+
 import net.ltgt.gradle.errorprone.errorprone
 import org.gradle.accessors.dm.LibrariesForLibs
 
@@ -21,7 +22,7 @@ dependencies {
 
 java {
   toolchain {
-    languageVersion.set(JavaLanguageVersion.of(17))
+    languageVersion.set(JavaLanguageVersion.of(21))
   }
 }
 
@@ -49,7 +50,7 @@ tasks.withType<JavaCompile>().configureEach {
     disableWarningsInGeneratedCode.set(true)
     excludedPaths.set(".*/build/generated/sources/annotationProcessor/.*")
     option("NullAway:AnnotatedPackages", "com.xenoterracide")
-    option("NullAway:CustomInitializerAnnotations", "picocli.CommandLine.Parameters")
+
     val errors = mutableListOf(
       "AmbiguousMethodReference",
       "ArgumentSelectionDefectChecker",
@@ -221,6 +222,7 @@ tasks.withType<JavaCompile>().configureEach {
 
     if (name != "compileTestJava") {
       options.compilerArgs.add("-Werror")
+      option("NullAway:CheckOptionalEmptiness", true)
       errors.add("NullAway")
     }
 
@@ -231,6 +233,8 @@ tasks.withType<JavaCompile>().configureEach {
           "-Xlint:-varargs",
         ),
       )
+      option("NullAway:HandleTestAssertionLibraries", true)
+      option("NullAway:ExcludedFieldAnnotations", "org.junit.jupiter.api.io.TempDir")
     }
 
     error(*errors.toTypedArray())
