@@ -41,7 +41,7 @@ log4j-api = { module = "org.apache.logging.log4j:log4j-api" }
 mockito = { module = "org.mockito:mockito-core" }
 nd4j-native = { module = "org.nd4j:nd4j-native", version.ref = "deeplearning4j" }
 neo4j-driver = { module = "org.neo4j.driver:neo4j-java-driver" }
-neo4j-test = "org.neo4j.test:neo4j-harness:4.4.+"
+neo4j-test = "org.neo4j.test:neo4j-harness:5.17.+"
 neo4j-testcontainers = "org.testcontainers:neo4j:1.+"
 pebble = "io.pebbletemplates:pebble:3.+"
 picocli-core = { module = "info.picocli:picocli", version.ref = "picocli" }
