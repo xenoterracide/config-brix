@@ -38,9 +38,8 @@ junit-launcher = { module = "org.junit.platform:junit-platform-launcher" }
 log4j-api = { module = "org.apache.logging.log4j:log4j-api" }
 mockito = { module = "org.mockito:mockito-core" }
 plugin-errorprone = "net.ltgt.gradle:gradle-errorprone-plugin:3.+"
-plugin-spotbugs = "com.github.spotbugs.snom:spotbugs-gradle-plugin:5.+"
+plugin-spotbugs = "com.github.spotbugs.snom:spotbugs-gradle-plugin:6.+"
 plugin-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.+"
-plugin-git-version = "com.palantir.git-version:gradle-git-version:3.+"
 semver = "org.semver4j:semver4j:5.+"
 slf4j-nop = { module = "org.slf4j:slf4j-nop" }
 spotbugs = "com.github.spotbugs:spotbugs:4.+"
@@ -57,7 +56,6 @@ spring-test = { module = "org.springframework:spring-test" }
 spring-security-core = { module = "org.springframework.security:spring-security-core" }
 spring-security-oauth2-core = { module = "org.springframework.security:spring-security-oauth2" }
 spring-data-commons = { module = "org.springframework.data:spring-data-commons" }
-spring-data-neo4j = { module = "org.springframework.data:spring-data-neo4j" }
 starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
 starter-core = { module = "org.springframework.boot:spring-boot-starter" }
 starter-jackson = { module = "org.springframework.boot:spring-boot-starter-jackson" }
@@ -66,7 +64,6 @@ starter-security = { module = "org.springframework.boot:spring-boot-starter-secu
 starter-oauth2-client = { module = "org.springframework.boot:spring-boot-starter-oauth2-client" }
 starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
 starter-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
-starter-neo4j = { module = "org.springframework.boot:spring-boot-starter-data-neo4j" }
 testcontainers = "org.testcontainers:junit-jupiter:1.+"
 uuid-creator = "com.github.f4b6a3:uuid-creator:5.+"
 vavr = "io.vavr:vavr:0.+"

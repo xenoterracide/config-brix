@@ -15,7 +15,9 @@ val libs = the<LibrariesForLibs>()
 
 dependencies {
   errorprone(libs.bundles.ep)
+  compileOnly(platform(libs.spring.bom))
   compileOnly(libs.bundles.compile.annotations)
+  testFixturesCompileOnly(platform(libs.spring.bom))
   testFixturesCompileOnly(libs.bundles.compile.annotations)
   testCompileOnly(libs.bundles.compile.annotations)
 }
