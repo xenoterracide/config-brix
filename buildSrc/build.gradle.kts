@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
-// Copyright © 2023-2024 Caleb Cushing.
+// © Copyright 2023-2024 Caleb Cushing. All rights reserved.
+
 buildscript {
   dependencyLocking.lockAllConfigurations()
 }
@@ -14,5 +15,4 @@ dependencies {
   implementation(libs.plugin.spotless)
   implementation(libs.plugin.spotbugs)
   implementation(libs.plugin.errorprone)
-  implementation(libs.plugin.gradle.v)
 }
