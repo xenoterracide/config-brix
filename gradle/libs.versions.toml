@@ -76,7 +76,7 @@ starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
 starter-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
 starter-neo4j = { module = "org.springframework.boot:spring-boot-starter-data-neo4j" }
 testcontainers = "org.testcontainers:junit-jupiter:1.+"
-tika = "org.apache.tika:tika-core:1.+"
+tika = "org.apache.tika:tika-core:2.+"
 uom-common = "systems.uom:systems-common:2.+"
 uom-indriya = "tech.units:indriya:2.+"
 uom-quantity = "systems.uom:systems-quantity:2.+"
