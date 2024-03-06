@@ -4,9 +4,6 @@
 <module name="Checker">
   <module name="SuppressWarningsFilter" />
 
-  <!-- https://checkstyle.org/config_filters.html#SuppressionFilter -->
-  <module name="SuppressWithPlainTextCommentFilter" />
-
   <!--- PRETTIER START -->
 
   <module name="BeforeExecutionExclusionFileFilter">
@@ -101,20 +98,39 @@
     </module>
   </module>
 
-  <module name="TreeWalker">
-    <!-- https://checkstyle.org/filters/suppressioncommentfilter.html -->
-    <module name="SuppressionCommentFilter" />
+  <!--- PRETTIER END -->
 
-    <!-- Checks for Javadoc comments.                     -->
-    <!-- See https://checkstyle.org/config_javadoc.html -->
-    <!--
-    <module name="InvalidJavadocPosition"/>
-    <module name="JavadocMethod"/>
-    <module name="JavadocType"/>
-    <module name="JavadocVariable"/>
-    <module name="JavadocStyle"/>
-    <module name="MissingJavadocMethod"/>
-    -->
+  <module name="TreeWalker">
+    <!-- https://checkstyle.org/config_filters.html#SuppressionFilter -->
+    <module name="SuppressionCommentFilter">
+      <property name="offCommentFormat" value="CHECKSTYLE.OFF\: ([\w\|]+)" />
+      <property name="onCommentFormat" value="CHECKSTYLE.ON\: ([\w\|]+)" />
+      <property name="checkFormat" value="$1" />
+    </module>
+
+    <!-- https://checkstyle.sourceforge.io/checks/javadoc/ -->
+    <module name="AtclauseOrder" />
+    <module name="InvalidJavadocPosition" />
+    <module name="JavadocBlockTagLocation" />
+    <module name="JavadocContentLocation" />
+    <module name="JavadocMethod" />
+    <module name="JavadocMissingLeadingAsterisk" />
+    <module name="JavadocMissingWhitespaceAfterAsterisk" />
+    <module name="JavadocParagraph" />
+    <module name="JavadocStyle" />
+    <module name="JavadocTagContinuationIndentation">
+      <property name="violateExecutionOnNonTightHtml" value="true" />
+    </module>
+    <module name="JavadocType" />
+    <module name="JavadocVariable" />
+    <module name="MissingJavadocMethod" />
+    <module name="MissingJavadocPackage" />
+    <module name="MissingJavadocType" />
+    <module name="NonEmptyAtclauseDescription" />
+    <module name="RequireEmptyLineBeforeBlockTagGroup" />
+    <module name="SingleLineJavadoc" />
+    <module name="SummaryJavadoc" />
+    <module name="WriteTag" />
 
     <!-- Checks for Naming Conventions https://checkstyle.org/checks/naming/ -->
     <module name="AbbreviationAsWordInName" />
@@ -270,8 +286,6 @@
 
   <module name="Translation" />
 
-  <!--- PRETTIER END -->
-
   <module name="RegexpSingleline"><!-- trailing whitespace -->
     <property name="format" value="\s+$" />
     <property name="minimum" value="0" />
@@ -279,9 +293,8 @@
     <property name="message" value="Line has trailing spaces." />
   </module>
 
-  <!-- Checks that a package-info.java file exists for each package.     -->
-  <!-- See https://checkstyle.org/config_javadoc.html#JavadocPackage -->
-  <!-- <module name="JavadocPackage"/> -->
+  <!-- https://checkstyle.sourceforge.io/checks/javadoc/ -->
+  <module name="JavadocPackage" />
 
   <!-- Miscellaneous https://checkstyle.org/checks/misc/ -->
   <module name="FileLength">

@@ -4,9 +4,6 @@
 <module name="Checker">
   <module name="SuppressWarningsFilter" />
 
-  <!-- https://checkstyle.org/config_filters.html#SuppressionFilter -->
-  <module name="SuppressWithPlainTextCommentFilter" />
-
   <!--- PRETTIER START -->
 
   <module name="BeforeExecutionExclusionFileFilter">
@@ -101,9 +98,15 @@
     </module>
   </module>
 
+  <!--- PRETTIER END -->
+
   <module name="TreeWalker">
-    <!-- https://checkstyle.org/filters/suppressioncommentfilter.html -->
-    <module name="SuppressionCommentFilter" />
+    <!-- https://checkstyle.org/config_filters.html#SuppressionFilter -->
+    <module name="SuppressionCommentFilter">
+      <property name="offCommentFormat" value="CHECKSTYLE.OFF\: ([\w\|]+)" />
+      <property name="onCommentFormat" value="CHECKSTYLE.ON\: ([\w\|]+)" />
+      <property name="checkFormat" value="$1" />
+    </module>
 
     <!-- Checks for Javadoc comments.                     -->
     <!-- See https://checkstyle.org/config_javadoc.html -->
@@ -266,8 +269,6 @@
   <module name="NewlineAtEndOfFile" />
 
   <module name="Translation" />
-
-  <!--- PRETTIER END -->
 
   <module name="RegexpSingleline"><!-- trailing whitespace -->
     <property name="format" value="\s+$" />

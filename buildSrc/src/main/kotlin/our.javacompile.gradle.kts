@@ -6,7 +6,6 @@ import org.gradle.accessors.dm.LibrariesForLibs
 
 plugins {
   `java-library`
-  `java-test-fixtures`
   id("our.bom")
   id("net.ltgt.errorprone")
 }
@@ -17,14 +16,22 @@ dependencies {
   errorprone(libs.bundles.ep)
   compileOnly(platform(libs.spring.bom))
   compileOnly(libs.bundles.compile.annotations)
-  testFixturesCompileOnly(platform(libs.spring.bom))
-  testFixturesCompileOnly(libs.bundles.compile.annotations)
   testCompileOnly(libs.bundles.compile.annotations)
 }
 
 java {
+  withJavadocJar()
+  withSourcesJar()
   toolchain {
     languageVersion.set(JavaLanguageVersion.of(21))
+  }
+}
+
+tasks.withType<Javadoc>().configureEach {
+  (options as StandardJavadocDocletOptions).apply {
+    encoding = "UTF-8"
+    addStringOption("tag", "apiNote:a:API Note:")
+    addStringOption("tag", "implNote:a:Implementation Note:")
   }
 }
 
@@ -44,11 +51,12 @@ tasks.withType<JavaCompile>().configureEach {
       "-Xlint:-exports",
       "-Xlint:-requires-transitive-automatic",
       "-Xlint:-requires-automatic",
-      "-Xlint:-fallthrough", // handled by error prone in a smarter way
+      "-Xlint:-fallthrough", // handled by error-prone in a smarter way
     ),
   )
 
   options.errorprone {
+    disable("InvalidInlineTag") // false? positive on @snippet
     disableWarningsInGeneratedCode.set(true)
     excludedPaths.set(".*/build/generated/sources/annotationProcessor/.*")
     option("NullAway:AnnotatedPackages", "com.xenoterracide")

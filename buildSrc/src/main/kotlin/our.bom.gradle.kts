@@ -22,7 +22,7 @@ configurations.configureEach {
       all {
         val spotbugs = Regex("^spotbugs.*")
         if (!name.matches(spotbugs) && !candidate.module.matches(spotbugs)) {
-          val nonRelease = Regex("^[\\d.]+-(M|ea|beta).*$")
+          val nonRelease = Regex("^[\\d.]+-(M|ea|beta|alpha).*$")
           if (candidate.version.matches(nonRelease)) reject("no pre-release")
         }
 

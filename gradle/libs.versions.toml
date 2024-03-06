@@ -28,6 +28,7 @@ jackson-dataformat-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-d
 jackson-module-parameter-names = { module = "com.fasterxml.jackson.module:jackson-module-parameter-names" }
 java-parser = "com.github.javaparser:javaparser-core:3.+"
 jakarta-annotation = { module = "jakarta.annotation:jakarta.annotation-api" }
+jakarta-validation = { module = "jakarta.annotation:jakarta.validation-api" }
 jgit = "org.eclipse.jgit:org.eclipse.jgit:6.+"
 jspecify = "org.jspecify:jspecify:0.+"
 junit-api = { module = "org.junit.jupiter:junit-jupiter-api" }
@@ -38,10 +39,13 @@ junit-launcher = { module = "org.junit.platform:junit-platform-launcher" }
 log4j-api = { module = "org.apache.logging.log4j:log4j-api" }
 mockito = { module = "org.mockito:mockito-core" }
 plugin-errorprone = "net.ltgt.gradle:gradle-errorprone-plugin:3.+"
-plugin-spotbugs = "com.github.spotbugs.snom:spotbugs-gradle-plugin:6.+"
+plugin-semver = "com.xenoterracide:gradle-semver:0.+"
+plugin-spotbugs = "com.github.spotbugs.snom:spotbugs-gradle-plugin:5.+"
 plugin-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.+"
 semver = "org.semver4j:semver4j:5.+"
+slf4j-bom = "org.slf4j:slf4j-bom:2.+"
 slf4j-nop = { module = "org.slf4j:slf4j-nop" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple" }
 spotbugs = "com.github.spotbugs:spotbugs:4.+"
 spring-bom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring" }
 spring-boot-core = { module = "org.springframework.boot:spring-boot" }
@@ -56,12 +60,15 @@ spring-test = { module = "org.springframework:spring-test" }
 spring-security-core = { module = "org.springframework.security:spring-security-core" }
 spring-security-oauth2-core = { module = "org.springframework.security:spring-security-oauth2" }
 spring-data-commons = { module = "org.springframework.data:spring-data-commons" }
+spring-data-neo4j = { module = "org.springframework.data:spring-data-neo4j" }
 starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
 starter-core = { module = "org.springframework.boot:spring-boot-starter" }
 starter-jackson = { module = "org.springframework.boot:spring-boot-starter-jackson" }
 starter-log4j2 = { module = "org.springframework.boot:spring-boot-starter-log4j2" }
-starter-security = { module = "org.springframework.boot:spring-boot-starter-security" }
+starter-neo4j = { module = "org.springframework.boot:spring-boot-starter-data-neo4j" }
 starter-oauth2-client = { module = "org.springframework.boot:spring-boot-starter-oauth2-client" }
+starter-security = { module = "org.springframework.boot:spring-boot-starter-security" }
+starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
 starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
 starter-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
 testcontainers = "org.testcontainers:junit-jupiter:1.+"

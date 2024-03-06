@@ -18,6 +18,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 11
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
       - uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: current
@@ -26,10 +34,10 @@ jobs:
       - run: find . -name '*gradle.lockfile' -delete
       - run: ./gradlew wrapper --write-locks
       - run: ./gradlew wrapper # somehow the final bat was not generated before
-      - run: ./gradlew build buildHealth --write-locks
+      - run: ./gradlew build shadowJar buildHealth --write-locks --scan
       - uses: peter-evans/create-pull-request@v6
         with:
-          title: "chore: Update Java Dependencies"
+          title: "chore(deps): java"
           branch: topic/update-java
           token: ${{ secrets.GH_MERGE_PAT }}
       - run: gh pr merge --auto --squash ${{ env.PULL_REQUEST_NUMBER }}
